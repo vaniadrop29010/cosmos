@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Орбита открытий — интерактивное путешествие по планетам, галактикам и истории освоения космоса.">
+    <meta name="theme-color" content="#050611">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <title>Орбита открытий | Исследуй Вселенную</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="final-polish.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <div class="stars"></div>
+    <div class="twinkling"></div>
+
+    <header>
+        <nav>
+            <div class="logo">
+                <span>Орбита открытий</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="index2.html">Планеты</a></li>
+                <li><a href="index3.html">Галактики</a></li>
+                <li><a href="index4.html">Исследования</a></li>
+                <li><a href="index5.html">Хаббл</a></li>
+                <li><a href="test.html">Игра</a></li>
+                <li><a href="index6.html">Контакты</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Свяжитесь с нами</h2>
+            <div class="contact-container">
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Имя</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Сообщение</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-button">Отправить</button>
+                </form>
+                <div class="contact-info">
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>info@cosmichorizons.ru</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <p>+7 (123) 456-78-90</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>Москва, ул. Космическая, 42</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>Орбита открытий</h3>
+                    <p>Исследуй бесконечность</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Навигация</h4>
+                        <ul>
+                            <li><a href="index.html">Главная</a></li>
+                            <li><a href="index2.html#about">О космосе</a></li>
+                            <li><a href="index2.html#planets">Планеты</a></li>
+                            <li><a href="index3.html#galaxies">Галактики</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Ресурсы</h4>
+                        <ul>
+                            <li><a href="index4.html">История исследований</a></li>
+                            <li><a href="index5.html">Снимки и видео</a></li>
+                            <li><a href="index5.html">Телескоп «Хаббл»</a></li>
+                            <li><a href="test.html">Космическая викторина</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Правовая информация</h4>
+                        <ul>
+                            <li><a href="index6.html">Обратная связь</a></li>
+                            <li><a href="index.html">О проекте</a></li>
+                            <li><a href="index2.html#planets">Солнечная система</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Орбита открытий. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="planet-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <h2 id="modal-title"></h2>
+                <div class="modal-image" id="modal-image"></div>
+                <div class="planet-details">
+                    <div class="detail-item">
+                        <h4>Диаметр:</h4>
+                        <p id="planet-diameter"></p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Расстояние от Солнца:</h4>
+                        <p id="planet-distance"></p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Период обращения:</h4>
+                        <p id="planet-orbit"></p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Температура:</h4>
+                        <p id="planet-temp"></p>
+                    </div>
+                </div>
+                <p id="planet-description"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="enhancements.js"></script>
+</body>
+
+</html>

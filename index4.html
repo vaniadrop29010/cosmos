@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Орбита открытий — интерактивное путешествие по планетам, галактикам и истории освоения космоса.">
+    <meta name="theme-color" content="#050611">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <title>Орбита открытий | Исследуй Вселенную</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="final-polish.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="twinkling"></div>
+    
+    <header>
+        <nav>
+            <div class="logo">
+                <span>Орбита открытий</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="index2.html">Планеты</a></li>
+                <li><a href="index3.html">Галактики</a></li>
+                <li><a href="index4.html">Исследования</a></li>
+                <li><a href="index5.html">Хаббл</a></li>
+                <li><a href="test.html">Игра</a></li>
+                <li><a href="index6.html">Контакты</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+
+       
+    <section id="exploration" class="exploration">
+        <div class="container">
+            <h2 class="section-title">Космические исследования</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>1957</h3>
+                        <p>Запуск первого искусственного спутника Земли - "Спутник-1"</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>1961</h3>
+                        <p>Юрий Гагарин - первый человек в космосе</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>1969</h3>
+                        <p>Нил Армстронг и Базз Олдрин - первые люди на Луне</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>1990</h3>
+                        <p>Запуск космического телескопа "Хаббл"</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>2021</h3>
+                        <p>Марсоход "Персеверанс" совершает посадку на Марс</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>Орбита открытий</h3>
+                    <p>Исследуй бесконечность</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Навигация</h4>
+                        <ul>
+                            <li><a href="index.html">Главная</a></li>
+                            <li><a href="index2.html#about">О космосе</a></li>
+                            <li><a href="index2.html#planets">Планеты</a></li>
+                            <li><a href="index3.html#galaxies">Галактики</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Ресурсы</h4>
+                        <ul>
+                            <li><a href="index4.html">История исследований</a></li>
+                            <li><a href="index5.html">Снимки и видео</a></li>
+                            <li><a href="index5.html">Телескоп «Хаббл»</a></li>
+                            <li><a href="test.html">Космическая викторина</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Правовая информация</h4>
+                        <ul>
+                            <li><a href="index6.html">Обратная связь</a></li>
+                            <li><a href="index.html">О проекте</a></li>
+                            <li><a href="index2.html#planets">Солнечная система</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Орбита открытий. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="planet-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <h2 id="modal-title"></h2>
+                <div class="modal-image" id="modal-image"></div>
+                <div class="planet-details">
+                    <div class="detail-item">
+                        <h4>Диаметр:</h4>
+                        <p id="planet-diameter"></p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Расстояние от Солнца:</h4>
+                        <p id="planet-distance"></p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Период обращения:</h4>
+                        <p id="planet-orbit"></p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Температура:</h4>
+                        <p id="planet-temp"></p>
+                    </div>
+                </div>
+                <p id="planet-description"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="enhancements.js"></script>
+</body>
+</html>

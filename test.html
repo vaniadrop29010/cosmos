@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#050611">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <title>Тестирование</title>
+    <link rel="stylesheet" href="test.css">
+</head>
+<body>
+    <ul>
+        <li><a class="home" href="index.html">Главная</a></li>
+    </ul>
+    <div class="quiz-progress" id="quiz-progress"><span id="quiz-step">ВОПРОС 1 / 8</span><span class="progress-track"><span id="progress-fill"></span></span></div>
+    <p id="quastion">Сколько планет в солнечной системе?</p>
+    <button id="b1" onclick="b_click(this)">6</button>
+    <button id="b2"  onclick="b_click(this)">7</button>
+    <button id="b3"  onclick="b_click(this)">8</button>
+    <button id="b4" onclick="b_click(this)">9</button>
+    <p id="p_answer"></p>
+    <script>
+        // Вопросы викторины: вопрос; четыре варианта; номер правильного ответа.
+        const questions = [
+            "Сколько планет в солнечной системе?;6;7;8;9;3",
+            "Какая самая близкая планета к солнцу?;Меркурий;Земля;Марс;Венера;1",
+            "У какой планеты больше всего колец?;Меркурий;Сатурн;Марс;Венера;2",
+            "Кто был первым человеком, ступившим на Луну?;Нил Армстронг;Юрий Гагарин;Алексей Леонов;Сергей Королев;1",
+            "Как назывался корабль Гагарина?;Буран;Восход;Союз;Восток-1;4",
+            "На какой планете, согласно одной из научных гипотез, возможен дождь из алмазов?;Нептун;Уран;Сатурн;Марс;1",
+            "Сколько планет нашей Солнечной системы состоят из газа?;Одна;Три;Четыре;Семь;3",
+            "Какой тип звезд встречается в Млечном Пути чаще всего?;Красные гиганты;Сверхгиганты;Красные карлики;Коричневые карлики;3"
+        ];
+        let questionIndex = 0;
+        let score = 0;
+        let locked = false;
+        const answerButtons = [1, 2, 3, 4].map(n => document.getElementById(`b${n}`));
+        const questionElement = document.getElementById('quastion');
+        const answerElement = document.getElementById('p_answer');
+        const stepElement = document.getElementById('quiz-step');
+        const progressFill = document.getElementById('progress-fill');
+
+        function showQuestion() {
+            if (questionIndex >= questions.length) {
+                finishQuiz();
+                return;
+            }
+            const parts = questions[questionIndex].split(';');
+            questionElement.textContent = parts[0];
+            answerButtons.forEach((button, index) => {
+                button.textContent = parts[index + 1];
+                button.disabled = false;
+                button.style.backgroundColor = '';
+                button.style.borderColor = '';
+            });
+            stepElement.textContent = `ВОПРОС ${questionIndex + 1} / ${questions.length}`;
+            progressFill.style.width = `${(questionIndex / questions.length) * 100}%`;
+            answerElement.textContent = '';
+            locked = false;
+        }
+
+        function b_click(button) {
+            if (locked || questionIndex >= questions.length) return;
+            locked = true;
+            const correctAnswer = Number(questions[questionIndex].split(';')[5]);
+            const selectedAnswer = Number(button.id.slice(1));
+            answerButtons.forEach(item => item.disabled = true);
+            if (selectedAnswer === correctAnswer) {
+                score++;
+                button.style.backgroundColor = 'rgba(47, 160, 112, .38)';
+                button.style.borderColor = 'rgba(112, 235, 173, .8)';
+                answerElement.textContent = 'Верно! Отличная работа.';
+            } else {
+                button.style.backgroundColor = 'rgba(190, 65, 87, .34)';
+                button.style.borderColor = 'rgba(255, 130, 150, .75)';
+                answerButtons[correctAnswer - 1].style.borderColor = 'rgba(112, 235, 173, .8)';
+                answerElement.textContent = 'Не совсем. Правильный ответ подсвечен.';
+            }
+            progressFill.style.width = `${((questionIndex + 1) / questions.length) * 100}%`;
+            window.setTimeout(() => {
+                questionIndex++;
+                showQuestion();
+            }, 1050);
+        }
+
+        function finishQuiz() {
+            document.getElementById('quiz-progress').style.display = 'none';
+            questionElement.innerHTML = 'Путешествие завершено';
+            answerButtons.forEach(button => button.style.display = 'none');
+            const message = score === questions.length
+                ? 'Безупречный результат. Ты настоящий исследователь космоса!'
+                : score >= 5
+                    ? 'Отличный результат. Во Вселенной тебе уже многое знакомо!'
+                    : 'Хорошее начало. Впереди ещё столько космических открытий!';
+            answerElement.textContent = `Твой результат: ${score} из ${questions.length}. ${message}`;
+            const restart = document.createElement('button');
+            restart.type = 'button';
+            restart.className = 'quiz-restart';
+            restart.textContent = 'Пройти ещё раз';
+            restart.addEventListener('click', () => location.reload());
+            document.body.appendChild(restart);
+        }
+
+        showQuestion();
+    </script>
+    <script src="enhancements.js"></script>
+</body>
+</html>
